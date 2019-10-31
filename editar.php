@@ -7,7 +7,7 @@ include_once 'includes/header.php';
 if (isset($_GET['id'])) {
     $id = mysqli_escape_string($connect, $_GET['id']);
 
-    $sql = "SELECT * FROM Clientes WHERE ID = '$id'";
+    $sql = "SELECT * FROM Clientes WHERE id = '$id'";
     $resultado = mysqli_query($connect, $sql);
     $dados = mysqli_fetch_array($resultado);
 }
@@ -18,6 +18,8 @@ if (isset($_GET['id'])) {
         <h3 class="light">Editar Cliente</h3>
 
         <form action="php_action/update.php" method="POST">
+            <input type="hidden" name="id" value="<?php echo $dados['id'];
+                                        ?>">
             <div class="input-field col s12">
                 <input type="text" name="nome" id="nome" value="<?php echo $dados['nome'];
                                                                 ?>">
@@ -36,8 +38,9 @@ if (isset($_GET['id'])) {
                 <label for="telefone">Telefone</label>
             </div>
 
-            <button type="submit" name="btn-cadastrar" class="btn teal lighten-2">Atualizar</button>
+            <button type="submit" name="btn-editar" class="btn teal lighten-2">Atualizar</button>
             <a href="index.php" class="btn red accent-2">Listar clientes</a>
+            <a href="anexar.php" class="btn red accent-5 right">Anexar arquivo</a>
         </form>
     </div>
 
