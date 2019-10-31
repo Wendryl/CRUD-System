@@ -5,9 +5,9 @@ session_start();
 require_once 'db_connect.php';
 
 if (isset($_POST['btn-cadastrar'])) {
-    $nome = mysqli_escape_string($connect, $_POST['nome']);
-    $email = mysqli_escape_string($connect, $_POST['email']);
-    $telefone = mysqli_escape_string($connect, $_POST['telefone']);
+    $nome = clear($_POST['nome']);
+    $email = clear($_POST['email']);
+    $telefone = clear($_POST['telefone']);
 
     $sql = "INSERT INTO Clientes (nome, email, telefone) VALUES ('$nome', '$email', '$telefone')";
 
