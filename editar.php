@@ -19,7 +19,7 @@ if (isset($_GET['id'])) {
 
         <form action="php_action/update.php" method="POST">
             <input type="hidden" name="id" value="<?php echo $dados['id'];
-                                        ?>">
+                                                    ?>">
             <div class="input-field col s12">
                 <input type="text" name="nome" id="nome" value="<?php echo $dados['nome'];
                                                                 ?>">
@@ -40,7 +40,7 @@ if (isset($_GET['id'])) {
 
             <button type="submit" name="btn-editar" class="btn teal lighten-2">Atualizar</button>
             <a href="index.php" class="btn red accent-2">Listar clientes</a>
-            <a href="anexar.php" class="btn red accent-5 right">Anexar arquivo</a>
+            <a href="php_action/upload.php" class="btn red accent-5 right">Anexar arquivo</a>
         </form>
     </div>
 
